@@ -1,0 +1,16 @@
+<h1>Items#index</h1>
+<p><% @items.each do |item| %>
+       <div class="card-deck">
+  <div class="card">
+    
+    <div class="card-body">
+      <h5 class="card-title"><%= item.title %></h5>
+      <p class="card-text"><%= item.price.round(2) %> EUR</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  
+</div>
+      <% end %></p>
