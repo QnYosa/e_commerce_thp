@@ -1,2 +1,16 @@
 <h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<p><% @items.each do |item| %>
+       <div class="card-deck">
+  <div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= item.title %></h5>
+      <p class="card-text"><%= item.title %></p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  
+</div>
+      <% end %></p>
