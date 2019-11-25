@@ -16,6 +16,6 @@ require 'faker'
 
 Item.destroy_all
 
-20.times do |index|
+25.times do |index|
   i = Item.create(title: Faker::Name.name, description: Faker::Movie.quote, price: Faker::Number.between(from: 5.00, to: 50.00), image_url: "lien_image_#{index}")  
 end
