@@ -1,41 +1,13 @@
 class CartsController < ApplicationController
-<<<<<<< HEAD
   before_action :set_cart, only: [:create, :destroy]
 
-  def new
-  end
-
   def index
   end
 
-  def create
-  end
-
-  def edit
-  end
-
-=======
-  def index
-  end
-
->>>>>>> development
   def show
     @cart = current_user.carts.last
   end
-
-<<<<<<< HEAD
-  def destroy
-  end
-
-  def update
-    @cart = current_user.carts.last
-    @cart.items
-    @item = Item.find(params[:index])
-    @cart.items << @item
-
-    redirect_to user_cart_path(current_user.id, @cart.id)
   
-=======
   def new
   end
 
@@ -50,9 +22,14 @@ class CartsController < ApplicationController
   end
 
   def update
+    @cart = current_user.carts.last
+    @cart.items
+    @item = Item.find(params[:index])
+    @cart.items << @item
+
+    redirect_to user_cart_path(current_user.id, @cart.id)
   end
 
   def destroy
->>>>>>> development
   end
 end
