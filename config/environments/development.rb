@@ -61,5 +61,5 @@ Rails.application.configure do
 
   # utilisation de letter opener en dev
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = false
 end
