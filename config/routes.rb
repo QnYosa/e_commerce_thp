@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items
   resources :orders
-  resources :carts
+  resources :users do
+    resources :carts
+  end
+  resources :charges
 end

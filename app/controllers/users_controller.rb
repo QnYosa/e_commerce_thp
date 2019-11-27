@@ -1,9 +1,9 @@
-class CartsController < ApplicationController
+class UsersController < ApplicationController
   def index
   end
 
   def show
-    @cart = current_user.carts.last
+    @user = User.find(current_user.id)
   end
 
   def new

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SoloEco</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+      <%= link_to "Accueil", root_path, class: "navbar-brand" %><br>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <% if user_signed_in? %>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "Mon panier", nil, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Mon profil", user_path(current_user.id), class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= link_to "Deconnexion", nil, class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %> 
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+              </div>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <%= link_to "S'inscrire/ Se connecter", nil, class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", data: { toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %> 
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
+              </div>
+            </li>
+          </ul>
+        <% end %>  
+      </div>   
+    </nav>
