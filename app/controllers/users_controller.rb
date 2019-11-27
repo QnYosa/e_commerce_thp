@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by first_name: params[:id]
+    @user = User.find(current_user.id)
   end
 
   def new
