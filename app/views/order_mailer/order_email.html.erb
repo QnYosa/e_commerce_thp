@@ -9,9 +9,12 @@
       Voilà le récapitulatif de ta commande:
     </p>
     <p>
-      <% cart_details = @order.cart_details %>
-      Item: <%= cart_details[0].item.name %>.
-      Quantity: <%= card_details[0].quantity %>
+      <% cart_details = @order.cart.cart_details %>
+      <% cart_details.each do |cart_detail| %>
+      Item: <%= cart_detail.item.title %>
+      Quantity: <%= cart_detail.quantity %>
+      <br>
+      <% end %>
     </p>
     <p> À très vite sur monsite.fr !
   </body>

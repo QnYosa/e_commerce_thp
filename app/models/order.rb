@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   after_create :order_send
 
   def order_send
-    UserMailer.order_email(self).deliver_now
+    OrderMailer.order_email(self).deliver_now
   end
 
 end
