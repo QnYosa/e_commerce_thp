@@ -1,22 +1,5 @@
 class CartsController < ApplicationController
-  def new
-  end
-
-  def index
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
   def show
-  end
-
-  def destroy
-  end
-
-  def update
+    @cart = current_user.carts.last
   end
 end
