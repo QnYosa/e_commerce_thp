@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.email %> bravo pour ta commande !</h1>
+    <p>
+      Voilà le récapitulatif de ta commande:
+    </p>
+    <p>
+      <% cart_details = @order.cart_details %>
+      Item: <%= cart_details[0].item.name %>.
+      Quantity: <%= card_details[0].quantity %>
+    </p>
+    <p> À très vite sur monsite.fr !
+  </body>
+</html>

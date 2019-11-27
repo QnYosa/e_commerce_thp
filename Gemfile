@@ -68,3 +68,4 @@ gem 'letter_opener'
 gem 'table_print'
 gem 'stripe'
 gem 'dotenv-rails'
+
