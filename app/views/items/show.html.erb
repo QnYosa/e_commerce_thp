@@ -7,11 +7,10 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Prix: <%= @item.price.round(2)%> EUR</li>
-    
+    <li class="list-group-item">id <%= @item.id%> </li>
   </ul>
   <div class="card-body">
-   <button class="btn btn-primary" type="submit">Ajouter au Panier</button>
-
+  <button type="button" class="btn btn-warning" method="PUT" >Ajouter au panier</button>
   </div>
 </div>
 </div>

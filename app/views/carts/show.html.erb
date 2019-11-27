@@ -1,2 +1,8 @@
 <h1>Carts#show</h1>
 <p>Find me in app/views/carts/show.html.erb</p>
+<h1>Mon Panier </h1>
+<p><% @cart.items.each do |item| %></p>
+<p><%= item.title %></p>
+
+<% end %>
+<button type="button" class="btn btn-warning">Passer la commande </button>

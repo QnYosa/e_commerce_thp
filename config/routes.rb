@@ -1,15 +1,10 @@
 Rails.application.routes.draw do
-  get 'carts/new'
-  get 'carts/index'
-  get 'carts/create'
-  get 'carts/edit'
-  get 'carts/show'
-  get 'carts/destroy'
-  get 'carts/update'
-  devise_for :users
+  devise_for :users 
+  resources :users do
+  resources :carts
+  end
   root 'items#index'
   resources :items
-  resources :carts
   resources :orders
   resources :charges
 end
