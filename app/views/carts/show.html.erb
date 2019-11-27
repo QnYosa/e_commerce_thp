@@ -1,6 +1,4 @@
-<h1>Elements de ton panier</h1>
-<% @cart.items.each do |item| %>
-  <p>Item: <%= item.title %></p> 
-<% end %>
-<%= link_to "Confirmer commande", cart_path(@cart.id), class: "btn btn-info", :method => "put" %>
+<!-- bouton a integrer
+<%= link_to "Confirmer commande", order_path(@cart.id), class: "btn btn-info", :method => "put" %>
+-->
 

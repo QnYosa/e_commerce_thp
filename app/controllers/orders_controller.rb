@@ -8,12 +8,7 @@ class OrdersController < ApplicationController
   def new
   end
 
-  # we call it at the confirmation of the order
   def create
-    cart_id = params["cart_id"]
-    user_id = Cart.find(cart_id).user_id
-    @order = Order.new(cart_id: cart_id, date: DateTime.now)
-    Cart.create(user_id: user_id)
   end
 
   def edit
