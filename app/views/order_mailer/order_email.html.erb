@@ -12,7 +12,7 @@
       <% cart_details = @order.cart.cart_details %>
       <% cart_details.each do |cart_detail| %>
       Item: <%= cart_detail.item.title %>
-      Quantity: <%= cart_detail.quantity %>
+      Quantity:
       <br>
       <% end %>
     </p>

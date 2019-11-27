@@ -43,21 +43,22 @@
     <div class="row">
       <% @items.each do |item| %>
         <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#"><%= item.title %></a>
-            </h4>
-            <p class="card-text">Petit chat de qualité, fais la pluie et le beau temps et meme la cuisine. Fortement recommandé par tous les chatnivores</p>
-            
-            <p>
-              <a href="#" class="btn btn-success">Voir le produit</a>
-              <a href="#" class="btn btn-primary">Ajouter au panier</a>
-            </p>
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#"><%= item.title %></a>
+              </h4>
+              <p class="card-text">Petit chat de qualité, fais la pluie et le beau temps et meme la cuisine. Fortement recommandé par tous les chatnivores</p>
+              <p class="card-text"><%= item.price.round(2) %> EUR</p>
+              <p>
+                <%= link_to "Voir le produit", item_path(item.id), class: "btn btn-primary"%>
+                <%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: item.id), method: "put", class: "btn btn-primary"%>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
+</div>
