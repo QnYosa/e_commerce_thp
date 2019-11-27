@@ -5,8 +5,6 @@
 <p><%= item.title %></p>
 
 <% end %>
-<button type="button" class="btn btn-warning">Passer la commande </button>
-<!-- bouton a integrer
-<%= link_to "Confirmer commande", order_path(@cart.id), class: "btn btn-info", :method => "put" %>
--->
+
+<%= link_to "Confirmer commande", order_path(:cart_id => @cart.id), class: "btn btn-info", :method => "post" %>
 
