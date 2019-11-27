@@ -7,8 +7,9 @@
           <h5 class="card-title"><%= item.title %></h5>
           <p class="card-text"><%= item.price.round(2) %> EUR</p>
           <p><%= link_to "Voir le produit", item_path(item.id), class: "btn btn-primary"%></p>
+          <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: item.id), method: "put", class: "btn btn-primary"%></p>
+
         </div>
-        
       </div>
     </div>
   <% end %>

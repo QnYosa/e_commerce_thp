@@ -23,7 +23,10 @@ class CartsController < ApplicationController
   def update
     @cart = current_user.carts.last
     @cart.items
-    @cart.items << Item.find(params[:id])
+    @item = Item.find(params[:index])
+    @cart.items << @item
+
+    redirect_to user_cart_path(current_user.id, @cart.id)
   
   end
 end

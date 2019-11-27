@@ -10,7 +10,7 @@
     <li class="list-group-item">id <%= @item.id%> </li>
   </ul>
   <div class="card-body">
-  <button type="button" class="btn btn-warning" method="PUT" >Ajouter au panier</button>
+  <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: @item.id), method: "put", class: "btn btn-primary"%></p>
   </div>
 </div>
 </div>
