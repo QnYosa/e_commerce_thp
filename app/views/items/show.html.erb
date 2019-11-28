@@ -7,7 +7,15 @@
   <div class="row">
 
     <div class="col-md-8">
-      <img class="img-fluid" src="https://cdn.pixabay.com/photo/2013/04/01/03/45/cat-98359_960_720.jpg" alt="petit chat de qualite">
+      <%if @item.avatar.attached?%>
+        <%= image_tag @item.avatar, class: "img-fluid", alt: 'petit chat de qualite' %>
+      <%else%>
+        <p>=== Il n'y a pas encore d'avatar lié à cet item ===</p>
+        <%= form_tag item_avatars_path(@item), multipart: true do %>
+          <%= file_field_tag :avatar %>
+          <%= submit_tag "Mettre à jour" %>
+        <% end %>
+      <%end%>         
     </div>
 
     <div class="col-md-4">

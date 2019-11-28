@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :carts
   end
   root 'items#index'
-  resources :items
+  resources :items do
+    resources :avatars, only: [:create]
+  end
   resources :orders
   resources :charges
   get 'mon_panier', to: 'carts#show'

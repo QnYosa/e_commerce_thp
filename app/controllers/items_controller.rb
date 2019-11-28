@@ -2,6 +2,9 @@ class ItemsController < ApplicationController
   before_action :true_admin, only: [:new, :create, :edit,:update,:destroy]
   def index
     @items = Item.all
+    if (user_signed_in? == true) && (current_user.carts.last == nil)
+    Cart.create(user_id: current_user.id)
+    end
   end
 
   def create
