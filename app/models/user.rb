@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # plus de credit sendgrid
-  # after_create :welcome_send
+  after_create :welcome_send
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
