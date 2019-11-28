@@ -7,15 +7,20 @@ class CartsController < ApplicationController
   end
 
   def show
+    @cart = current_user.carts.last
+    @total_amount = 0
+    @cart.cart_details.each { |detail|
+      @total_amount = @total_amount + detail.item.price.round(2)
+    }
+
   end
   
   def new
+    @cart = Cart.create(user_id: current_user.id)
   end
 
   def create
-    cart_id = params["cart_id"]
-    user_id = Cart.find(cart_id).user_id
-    @order = Order.new(cart_id: cart_id, date: DateTime.now)
+    user_id = current_user.id
     Cart.create(user_id: user_id)
   end
 
