@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
-    if current_user.carts.last == nil
-      Cart.create(user_id: current_user.id)
+    if (user_signed_in? == true) && (current_user.carts.last == nil)
+    Cart.create(user_id: current_user.id)
     end
   end
 
