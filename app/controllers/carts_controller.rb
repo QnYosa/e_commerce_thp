@@ -41,7 +41,7 @@ class CartsController < ApplicationController
       flash[:success]="L'élement a bien été ajouté au panier"
     end
 
-    redirect_to user_cart_path(current_user.id, @cart.id)
+    redirect_to mon_panier_path
   
   end
 
@@ -61,7 +61,7 @@ class CartsController < ApplicationController
   end
 
   def cart_permit
-    if current_user != Cart.find(params[:id]).user
+    if current_user != @cart.user
       flash[:alert] = "Ce n'était pas votre panier voici le votre"
       redirect_to user_cart_path(current_user.id, @cart.id)
     end

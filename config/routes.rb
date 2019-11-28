@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :items
   resources :orders
   resources :charges
+  get 'mon_panier', to: 'carts#show'
 end
