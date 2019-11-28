@@ -21,10 +21,9 @@ Cart.destroy_all
 Order.destroy_all
 
 3.times do |index|
-  u = User.create(email: "testo#{index}@yopmail.com", password: "testoto")  
+  u = User.create(email: "testo#{index}@yopmail.com", password: "testoto", is_admin: true)  
   i = Item.create(title: Faker::Name.name, description: Faker::Movie.quote, price: Faker::Number.between(from: 5.00, to: 50.00), image_url: "lien_image_#{index}")  
   c = Cart.create(user_id: u.id)
   c.items << i  
   o = Order.create(date: Time.now, cart_id: c.id)  
 end
-

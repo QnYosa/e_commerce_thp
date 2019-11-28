@@ -1,28 +1,12 @@
-class ItemsController < ApplicationController
-  before_action :true_admin, only: [:new, :create, :edit,:update,:destroy]
+class Admin::AdminController < ApplicationController
+  before_action :true_admin
   def index
+    @carts = Cart.all
     @items = Item.all
+    @orders = Order.all
+    @users = User.all
   end
-
-  def create
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
+  
   private
 
   def true_admin

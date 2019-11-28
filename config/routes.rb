@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   resources :orders
   resources :charges
   get 'mon_panier', to: 'carts#show'
+  #admin baby
+  namespace :admin do
+    root "admin#index"
+    resources :users, :carts, :orders, :items
+  end
 end
