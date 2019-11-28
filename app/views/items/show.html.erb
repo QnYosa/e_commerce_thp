@@ -18,7 +18,12 @@
     </div>
     <div class="text-center mt-5 col-md-8">
       <p>
-        <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: @item.id), method: "put", class: "btn btn-success btn-lg"%></p>
+      <% if user_signed_in? %>
+      <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id, current_user.carts.last.id, index: @item.id), method: "put", class: "btn btn-success btn-lg"%></p>
+
+      <% else %>
+      <%= link_to "Il faut se connecter pour m'acheter", new_user_session_path, class: "btn btn-info"%>
+      <% end %>
       </p>
     </div>
   </div>
