@@ -22,7 +22,24 @@
     <hr>
   <% end %>
   <h1 class="text-center mb-5">Total de la commande : 35 EUR</h1>
-  <p class="text-center mb-5"> <%= link_to "Confirmer commande", orders_path, class: "btn btn-success btn-lg", :method => "post" %> </p>
+  <div class="text-center mb-5">
+  
+    <%= form_tag orders_path(:price => 35) do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Réservation de ton chaton"
+            data-amount="3500"
+            data-locale="auto"></script>
+    <% end %>
+  </div>
   <br>
   <br>
   <br>
