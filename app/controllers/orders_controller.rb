@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def create
 
-    puts @amount = params[:price].to_i * 100
+    puts @amount = params[:price].to_i
     puts @user_id = current_user.id
     puts @cart_id = Cart.where(user_id: @user_id).last.id
     
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Rails Stripe customer',
-      currency: 'usd',
+      currency: 'eur',
       })
 
     @order = Order.create(cart_id: @cart_id, date: DateTime.now)

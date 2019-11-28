@@ -6,6 +6,10 @@ class CartsController < ApplicationController
 
   def show
     @cart = current_user.carts.last
+    @total_amount = 0
+    @cart.cart_details.each { |detail|
+      @total_amount = @total_amount + detail.item.price.round(2)
+    }
   end
   
   def new
