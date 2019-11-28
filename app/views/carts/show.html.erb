@@ -12,11 +12,15 @@
         <h3><%= item.title %></h3>
         <p><%= item.description %></p>
         <p><%= item.price.round(2)%> EUR</p>
-        <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
+        <p>Quantité : <%= @quantity %></p>
+        <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%><br>
         <br>
         <br>
-        <%= link_to "Allez, supprime moi", nil, class: "btn btn-danger"%>
-
+        <%= link_to "Allez, supprime moi", nil, class: "btn btn-danger"%><br>
+        <br>
+        <%= link_to "Add one", cart_details_add_path(:id_cart_detail), method: :post, class: "btn btn-warning" %><br>
+        <br>
+        <%= link_to "Reduce one", cart_details_reduce_path(:id_cart_detail), method: :post, class: "btn btn-warning"%><br>
       </div>
     </div>
     <hr>

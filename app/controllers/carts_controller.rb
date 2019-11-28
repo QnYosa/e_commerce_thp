@@ -12,6 +12,7 @@ class CartsController < ApplicationController
     @cart.cart_details.each { |detail|
       @total_amount = @total_amount + detail.item.price.round(2)
     }
+    @quantity = 0
 
   end
   
@@ -34,6 +35,7 @@ class CartsController < ApplicationController
     @cart.items << @item
 
     redirect_to user_cart_path(current_user.id, @cart.id)
+   
   
   end
 

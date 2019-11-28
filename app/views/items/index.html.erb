@@ -51,6 +51,8 @@
               </h4>
               <p class="card-text">Petit chat de qualité, fais la pluie et le beau temps et meme la cuisine. Fortement recommandé par tous les chatnivores</p>
               <p class="card-text"><%= item.price.round(2) %> EUR</p>
+              <p class="card-text"><%= @quantity %> EUR</p>
+
               <p>
                 <% if user_signed_in? %>
                 <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
