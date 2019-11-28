@@ -29,9 +29,17 @@ class CartsController < ApplicationController
 
   def update
     @cart = current_user.carts.last
-    @cart.items
-    @item = Item.find(params[:index])
-    @cart.items << @item
+
+    if params["cart_detail_id"] != nil
+      # delete an element from cart
+      CartDetail.destroy(params["cart_detail_id"])
+      flash[:success]="L'élement a bien été supprimé du panier"
+    else
+    # add an element to cart
+      @item = Item.find(params[:index])
+      @cart.items << @item
+      flash[:success]="L'élement a bien été ajouté au panier"
+    end
 
     redirect_to user_cart_path(current_user.id, @cart.id)
   
