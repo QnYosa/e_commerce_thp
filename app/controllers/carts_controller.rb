@@ -1,11 +1,13 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:create, :destroy]
+  before_action :check_user, only: [:show]
+  before_filter :cart_permit, only: :edit
+
 
   def index
   end
 
   def show
-    @cart = current_user.carts.last
   end
   
   def new
@@ -28,8 +30,28 @@ class CartsController < ApplicationController
     @cart.items << @item
 
     redirect_to user_cart_path(current_user.id, @cart.id)
+  
   end
 
   def destroy
   end
+
+  private
+
+  def check_user
+    if current_user.nil? 
+      flash[:alert] = "Bien essayé mais il faut se connecter"
+      redirect_to new_user_session_path(:subdomain => false)
+    else
+      @cart = current_user.carts.last
+      session[:viewed] = true
+    end
+  end
+
+  def cart_permit
+    if current_user != Photo.find(params[:id]).user
+      flash[:alert] = "Ce n'était pas votre panier voici le votre"
+      redirect_to user_cart_path(current_user.id, @cart.id)
+    end
+  end 
 end
