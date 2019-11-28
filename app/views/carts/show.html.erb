@@ -1,6 +1,3 @@
-<!-- bouton a integrer
-<%= link_to "Confirmer commande", order_path(@cart.id), class: "btn btn-info", :method => "put" %>
--->
 <div class="container">
   <h1 class="text-center mb-5">Mon Panier</h1>
   
@@ -25,7 +22,7 @@
     <hr>
   <% end %>
   <h1 class="text-center mb-5">Total de la commande : 35 EUR</h1>
-  <p class="text-center mb-5"><%= link_to "Confirmer commande", nil, class: "btn btn-success btn-lg" %></p>
+  <p class="text-center mb-5"> <%= link_to "Confirmer commande", orders_path, class: "btn btn-success btn-lg", :method => "post" %> </p>
   <br>
   <br>
   <br>
