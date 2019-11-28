@@ -15,7 +15,7 @@
       <br>
       Photo de ton chaton:
       <br>
-      <%= rails_blob_url(cart_detail.item.avatar)%>
+      <%= Rails.application.routes.url_helpers.rails_blob_path(cart_detail.item.avatar, only_path: true) %>
       <br>
       <% end %>
     </p>
