@@ -12,7 +12,10 @@
       <% cart_details = @order.cart.cart_details %>
       <% cart_details.each do |cart_detail| %>
       Item: <%= cart_detail.item.title %>
-      Quantity:
+      <br>
+      Photo de ton chaton:
+      <br>
+      <%= image_tag cart_detail.item.avatar %>
       <br>
       <% end %>
     </p>
