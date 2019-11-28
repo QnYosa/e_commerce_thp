@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="text-center mb-5">Mon Panier</h1>
   
-  <% @cart.items.each do |item| %>
+  <% @cart.cart_details.each_with_index do |cart_detail| %>
     <div class="row">
       <div class="col-md-6">
         <a href="#">
@@ -9,14 +9,13 @@
         </a>
       </div>
       <div class="col-md-6">
-        <h3><%= item.title %></h3>
-        <p><%= item.description %></p>
-        <p><%= item.price.round(2)%> EUR</p>
-        <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
+        <h3><%= cart_detail.item.title %></h3>
+        <p><%= cart_detail.item.description %></p>
+        <p><%= cart_detail.item.price.round(2)%> EUR</p>
+        <%= link_to "Voir mes moustaches", item_path(cart_detail.item.id), class: "btn btn-info"%>
         <br>
         <br>
-        <%= link_to "Allez, supprime moi", nil, class: "btn btn-danger"%>
-
+        <%= link_to "Allez, supprime moi", user_cart_path(current_user.id, @cart.id, :cart_detail_id => cart_detail.id), class: "btn btn-danger", method: "put"%>
       </div>
     </div>
     <hr>
