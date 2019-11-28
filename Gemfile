@@ -69,3 +69,4 @@ gem 'letter_opener'
 gem 'table_print'
 gem 'stripe'
 gem 'dotenv-rails'
+gem "aws-sdk-s3", require: false

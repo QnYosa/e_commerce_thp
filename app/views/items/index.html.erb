@@ -44,7 +44,9 @@
       <% @items.each do |item| %>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="https://cdn.pixabay.com/photo/2013/04/01/03/45/cat-98359_960_720.jpg" alt=""></a>
+            <%if item.avatar.attached?%>
+            <a href="#"><%= image_tag item.avatar, class: "card-img-top", alt: 'petit chat de qualite' %></a>
+            <%end%>
             <div class="card-body">
               <h4 class="card-title">
                 <%= item.title %>
