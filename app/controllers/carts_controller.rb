@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:create, :destroy]
-  before_action :check_user, only: [:show]
-  before_filter :cart_permit, only: :edit
+  before_action :check_user,:cart_permit, only: [:show]
 
 
   def index
