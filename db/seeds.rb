@@ -20,8 +20,10 @@ Item.destroy_all
 Cart.destroy_all
 Order.destroy_all
 
-3.times do |index|
-  u = User.create(email: "testo#{index}@yopmail.com", password: "testoto", is_admin: true)  
+u = User.create(email: "testo0@yopmail.com", password: "testoto", is_admin: true)  
+
+20.times do |index|
+  u = User.create(email: "chanator#{index}@yopmail.com", password: "testoto", is_admin: false)  
   i = Item.create(title: Faker::Name.name, description: Faker::Movie.quote, price: Faker::Number.between(from: 5.00, to: 50.00), image_url: "lien_image_#{index}")  
   c = Cart.create(user_id: u.id)
   c.items << i  

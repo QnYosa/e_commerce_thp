@@ -46,6 +46,11 @@ class CartsController < ApplicationController
   end
 
   def destroy
+    @cart = Cart.find(params[:id])
+    if @cart.destroy
+      flash[:success] = "Le panier a été supprimé"
+      redirect_to admin_carts_path
+    end
   end
 
   private

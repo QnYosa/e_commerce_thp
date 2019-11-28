@@ -21,6 +21,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    if @item.destroy
+      flash[:success] = "La commande a été supprimée"
+      redirect_to admin_orders_path
+    end
   end
 
   private

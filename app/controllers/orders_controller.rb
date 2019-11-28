@@ -45,6 +45,11 @@ class OrdersController < ApplicationController
   end
 
   def destroy
+    @order = Order.find(params[:id])
+    if @order.destroy
+      flash[:success] = "La commande a été supprimée"
+      redirect_to admin_orders_path
+    end
   end
 
   private
