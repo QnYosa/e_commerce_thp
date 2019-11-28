@@ -1,10 +1,32 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
-<h1>Mon Panier </h1>
-<p><% @cart.items.each do |item| %></p>
-<p><%= item.title %></p>
+<!-- bouton a integrer
+<%= link_to "Confirmer commande", order_path(@cart.id), class: "btn btn-info", :method => "put" %>
+-->
+<div class="container">
+  <h1 class="text-center mb-5">Mon Panier</h1>
+  
+  <% @cart.items.each do |item| %>
+    <div class="row">
+      <div class="col-md-6">
+        <a href="#">
+          <img class="img-fluid rounded mb-3 mb-md-0" src="https://cdn.pixabay.com/photo/2013/04/01/03/45/cat-98359_960_720.jpg" alt="">
+        </a>
+      </div>
+      <div class="col-md-6">
+        <h3><%= item.title %></h3>
+        <p><%= item.description %></p>
+        <p><%= item.price.round(2)%> EUR</p>
+        <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
+        <br>
+        <br>
+        <%= link_to "Allez, supprime moi", nil, class: "btn btn-danger"%>
 
-<% end %>
-
-<%= link_to "Confirmer commande", order_path(:cart_id => @cart.id), class: "btn btn-info", :method => "post" %>
-
+      </div>
+    </div>
+    <hr>
+  <% end %>
+  <h1 class="text-center mb-5">Total de la commande : 35 EUR</h1>
+  <p class="text-center mb-5"><%= link_to "Confirmer commande", nil, class: "btn btn-success btn-lg" %></p>
+  <br>
+  <br>
+  <br>
+</div>
