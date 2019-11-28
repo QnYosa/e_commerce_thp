@@ -7,24 +7,24 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2017/03/14/14/49/cat-2143332_960_720.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
+            <h3 class="font-weight-bold">Ici on vend des chats</h3>
+            <p>Pas des tigres de pacotilles</p>
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/05/21/13/45/tiger-2331336_960_720.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
+            <h3 class="font-weight-bold">Bon ok on a quelques tigres</h3>
+            <p>Nourris aux moussaillons chaque matin</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/12/07/08/47/cat-3003434_960_720.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
+            <h3 class="font-weight-bold">Allez bonne visite Moussaillon</h3>
+            <p>Et oublie pas, achete un chat</p>
           </div>
         </div>
       </div>
@@ -44,16 +44,15 @@
       <% @items.each do |item| %>
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <a href="#"><img class="card-img-top" src="https://cdn.pixabay.com/photo/2013/04/01/03/45/cat-98359_960_720.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#"><%= item.title %></a>
+                <%= item.title %>
               </h4>
               <p class="card-text">Petit chat de qualité, fais la pluie et le beau temps et meme la cuisine. Fortement recommandé par tous les chatnivores</p>
               <p class="card-text"><%= item.price.round(2) %> EUR</p>
               <p>
-                <%= link_to "Voir le produit", item_path(item.id), class: "btn btn-primary"%>
-                <%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: item.id), method: "put", class: "btn btn-primary"%>
+                <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
               </p>
             </div>
           </div>
@@ -62,3 +61,4 @@
     </div>
   </div>
 </div>
+<br>

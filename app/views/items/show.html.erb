@@ -1,16 +1,30 @@
-<div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= @item.title %></h5>
-    <p class="card-text"><%= @item.description%></p>
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3"><%= @item.title %></h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="https://cdn.pixabay.com/photo/2013/04/01/03/45/cat-98359_960_720.jpg" alt="petit chat de qualite">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Description du petit chat</h3>
+      <p><%= @item.description%></p>
+      <h3 class="my-3">Prix</h3>
+      <p><%= @item.price.round(2)%> EUR</p>
+    </div>
+    <div class="text-center mt-5 col-md-8">
+      <p>
+        <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: @item.id), method: "put", class: "btn btn-success btn-lg"%></p>
+      </p>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Prix: <%= @item.price.round(2)%> EUR</li>
-    <li class="list-group-item">id <%= @item.id%> </li>
-  </ul>
-  <div class="card-body">
-  <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id,current_user.carts.last.id, index: @item.id), method: "put", class: "btn btn-primary"%></p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   </div>
-</div>
-</div>
