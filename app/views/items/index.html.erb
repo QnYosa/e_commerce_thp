@@ -57,7 +57,6 @@
                 <% if user_signed_in? %>
                 <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
                 <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id, current_user.carts.last.id, index: item.id), method: "put", class: "btn btn-success btn-lg"%></p>
-
                 <% else %>
                 <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
                 <% end %>
