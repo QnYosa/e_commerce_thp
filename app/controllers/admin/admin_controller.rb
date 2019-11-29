@@ -1,4 +1,5 @@
 class Admin::AdminController < ApplicationController
+  include Admin::IndexHelper
   before_action :true_admin
   def index
     @carts = Cart.all
@@ -7,6 +8,7 @@ class Admin::AdminController < ApplicationController
     @users = User.all
   end
   
+ 
   private
 
   def true_admin
