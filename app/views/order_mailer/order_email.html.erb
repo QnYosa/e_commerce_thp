@@ -15,7 +15,7 @@
       <br>
       Photo de ton chaton:
       <br>
-      <%= Rails.application.routes.url_helpers.rails_blob_path(cart_detail.item.avatar, only_path: true) %>
+      <a href="https://ecommerce-thp-dev.herokuapp.com/<%= Rails.application.routes.url_helpers.rails_blob_path(cart_detail.item.avatar, only_path: true) %>>Télécharger l'image de mon chat</a>
       <br>
       <% end %>
     </p>
