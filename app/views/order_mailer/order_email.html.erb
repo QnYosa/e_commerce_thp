@@ -15,7 +15,7 @@
       <br>
       Photo de ton chaton:
       <br>
-      <img src="https://ecommerce-thp-dev.herokuapp.com<%= Rails.application.routes.url_helpers.rails_blob_path(cart_detail.item.avatar, only_path: true) %>">
+      <%= Rails.application.routes.url_helpers.rails_blob_path(cart_detail.item.avatar, only_path: true) %>
       <br>
       <% end %>
     </p>
