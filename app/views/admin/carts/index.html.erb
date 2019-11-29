@@ -41,8 +41,7 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">liste des produits</th>
-            <th scope="col">Voir</th>
+            <th scope="col">liste des produits du panier</th>
             <th scope="col">Supprimer</th>
           </tr>
         </thead>
@@ -57,12 +56,13 @@
                   <% end %>
                 </ul>
               </td>
-              <td><%= link_to "voir", user_cart_path(cart.user_id,cart.id), class: "btn btn-success btn-sm"%></td>
               <td><%= link_to "supprimer", user_cart_path(cart.user_id,cart.id), class: "btn btn-danger btn-sm", data: {confirm: "Es-tu sur?", method: "delete"}%></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <br>
     </main>
+    
   </div>
 </div>

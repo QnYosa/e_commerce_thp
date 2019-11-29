@@ -54,13 +54,14 @@
               <th scope="row"><%= item.id %></th>
               <td><%= item.title %></td>
               <td><%= item.description %></td>
-              <td><%= item.price %> EUR</td>
+              <td><%= item.price.round(2) %> EUR</td>
               <td><%= link_to "voir", item_path(item.id), class: "btn btn-success btn-sm"%></td>
               <td><%= link_to "supprimer", item_path(item.id), class: "btn btn-danger btn-sm", data: {confirm: "Es-tu sur?", method: "delete"}%></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <br><br>
     </main>
   </div>
 </div>

@@ -44,8 +44,6 @@
             <th scope="col">Email</th>
             <th scope="col">Password</th>
             <th scope="col">Admin</th>
-            <th scope="col">Voir</th>
-            <th scope="col">Editer</th>
             <th scope="col">Supprimer</th>
           </tr>
         </thead>
@@ -56,13 +54,12 @@
               <td><%= user.email %></td>
               <td><%= user.encrypted_password %></td>
               <td><%= user.is_admin %></td>
-              <td><%= link_to "voir", user_path(user.id), class: "btn btn-success btn-sm"%></td>
-              <td>/</td>
               <td><%= link_to "supprimer", user_path(user.id), class: "btn btn-danger btn-sm", data: {confirm: "Es-tu sur?", method: "delete"}%></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <br><br>
     </main>
   </div>
 </div>

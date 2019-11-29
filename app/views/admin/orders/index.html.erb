@@ -43,7 +43,6 @@
             <th scope="col">#</th>
             <th scope="col">Panier rattaché</th>
             <th scope="col">Date de la commande</th>
-            <th scope="col">Voir</th>
             <th scope="col">Supprimer</th>
           </tr>
         </thead>
@@ -51,14 +50,14 @@
           <%@orders.each do |order|%>
             <tr>
               <th scope="row"><%= order.id %></th>
-              <td><%= order.cart.id %></td>
+              <td><%= order.cart_id %></td>
               <td><%= order.date %></td>
-              <td><%= link_to "voir", order_path(order.id), class: "btn btn-success btn-sm"%></td>
               <td><%= link_to "supprimer", order_path(order.id), class: "btn btn-danger btn-sm", data: {confirm: "Es-tu sur?", method: "delete"}%></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <br><br>
     </main>
   </div>
 </div>

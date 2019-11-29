@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :true_admin [:destroy]
+  before_action :true_admin, only: [:destroy]
   before_action :check_user,:cart_permit, only: [:show]
 
 
@@ -66,9 +66,13 @@ class CartsController < ApplicationController
   end
 
   def cart_permit
-    if current_user != @cart.user
-      flash[:alert] = "Ce n'était pas votre panier voici le votre"
-      redirect_to user_cart_path(current_user.id, @cart.id)
+    if current_user.is_admin == true
+      return false
+    else
+      if current_user != @cart.user
+        flash[:alert] = "Ce n'était pas votre panier voici le votre"
+        redirect_to user_cart_path(current_user.id, @cart.id)
+      end
     end
   end 
 
