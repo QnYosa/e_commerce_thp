@@ -8,7 +8,6 @@ class Admin::AdminController < ApplicationController
     @users = User.all
   end
   
- 
   private
 
   def true_admin
