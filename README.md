@@ -11,7 +11,7 @@ Un utilisateur peut accéder facilement à son panier, modifier la quantité de 
 
 seed.rb qui contient quelques exemples de produits, pour que toute l'équipe de développement puisse en profiter.
 
-Quelques fonctionnalités supplémentaiers
+Quelques fonctionnalités supplémentaires
 
 Ajout d'un dashboard Admin, qui fait un état des lieux des commandes effectuées
 Ajout d'un type de user "admin", qui peut créer et modifier des produits
