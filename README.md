@@ -1,5 +1,7 @@
 # README
 
+Ce site est hebergé sur https://ecommerce-thp-dev.herokuapp.com
+
 Pitch
 Boutique en ligne, pour un magasin de photos de chatons. La boutique va afficher les différents produits, puis les clients pourront s'inscrire, remplir leur panier, et payer l'objet avec Stripe pour le recevoir par email.
 

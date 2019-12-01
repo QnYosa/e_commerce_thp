@@ -1,0 +1,43 @@
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3"><%= @item.title %></h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <%if @item.avatar.attached?%>
+        <%= image_tag @item.avatar, class: "img-fluid", alt: 'petit chat de qualite' %>
+      <%else%>
+        <p>=== Il n'y a pas encore d'avatar lié à cet item ===</p>
+        <%= form_tag item_avatars_path(@item), multipart: true do %>
+          <%= file_field_tag :avatar %>
+          <%= submit_tag "Mettre à jour" %>
+        <% end %>
+      <%end%>         
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Description du petit chat</h3>
+      <p><%= @item.description%></p>
+      <h3 class="my-3">Prix</h3>
+      <p><%= @item.price.round(2)%> EUR</p>
+    </div>
+    <div class="text-center mt-5 col-md-8">
+      <p>
+      <% if user_signed_in? %>
+      <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id, current_user.carts.last.id, index: @item.id), method: "put", class: "btn btn-success btn-lg"%></p>
+
+      <% else %>
+      <%= link_to "Il faut se connecter pour m'acheter", new_user_session_path, class: "btn btn-info"%>
+      <% end %>
+      </p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </div>

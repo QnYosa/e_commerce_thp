@@ -1,0 +1,72 @@
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2017/03/14/14/49/cat-2143332_960_720.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="font-weight-bold">Ici on vend des chats</h3>
+            <p>Pas des tigres de pacotilles</p>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/05/21/13/45/tiger-2331336_960_720.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="font-weight-bold">Bon ok on a quelques tigres</h3>
+            <p>Nourris aux moussaillons chaque matin</p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2017/12/07/08/47/cat-3003434_960_720.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="font-weight-bold">Allez bonne visite Moussaillon</h3>
+            <p>Et oublie pas, achete un chat</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container mt-5">
+    <div class="row">
+      <% @items.each do |item| %>
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <%if item.avatar.attached?%>
+            <a href="#"><%= image_tag item.avatar, class: "card-img-top", alt: 'petit chat de qualite' %></a>
+            <%end%>
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= item.title %>
+              </h4>
+              <p class="card-text">Petit chat de qualité, fais la pluie et le beau temps et meme la cuisine. Fortement recommandé par tous les chatnivores</p>
+              <p class="card-text"><%= item.price.round(2) %> EUR</p>
+              <p>
+                <% if user_signed_in? %>
+                <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
+                <p><%= link_to "Ajouter au Panier", user_cart_path(current_user.id, current_user.carts.last.id, index: item.id), method: "put", class: "btn btn-success btn-lg"%></p>
+                <% else %>
+                <%= link_to "Voir mes moustaches", item_path(item.id), class: "btn btn-info"%>
+                <% end %>
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>

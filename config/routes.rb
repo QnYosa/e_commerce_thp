@@ -1,3 +1,18 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users 
+  resources :users do
+    resources :carts
+  end
+  root 'items#index'
+  resources :items do
+    resources :avatars, only: [:create]
+  end
+  resources :orders
+  resources :charges
+  get 'mon_panier', to: 'carts#show'
+  #admin baby
+  namespace :admin do
+    root "admin#index"
+    resources :users, :carts, :orders, :items
+  end
 end

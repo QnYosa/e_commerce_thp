@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="mb-5 text-center mt-2">Liste des commandes</h1>
+  <div class="row">
+    <% @user.carts.each_with_index do |cart, index| %>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Commande numéro <%= cart.id %></h4>
+          <div class="card-body">
+            <p class="card-text">Images envoyées :</p>
+            <ul>
+            <% cart.items.each do |item| %>
+              <li><%= link_to "#{item.title}", item_path(item.id)%></li>
+            <% end %>
+            </ul>
+          </div>
+          <div class="card-footer text-center">
+            <p>with ❤️, miaou</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="text-center">  
+    <h3>Modifier mon profil</h3>
+    <p>
+      <%= link_to "Modifier email/mot de passe", edit_user_registration_path(@user), class: "btn btn-outline-info btn-sm" %>
+    </p>
+  </div>
+</div>

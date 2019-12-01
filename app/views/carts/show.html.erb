@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="text-center mb-5">Mon Panier</h1>
+  
+  <% @cart.cart_details.each_with_index do |cart_detail| %>
+    <div class="row">
+      <div class="col-md-6">
+        <a href="#">
+          <%if cart_detail.item.avatar.attached?%>
+          <%= image_tag cart_detail.item.avatar, class: "img-fluid rounded mb-3 mb-md-0", alt: 'petit chat de qualite' %>
+          <%end%>
+        </a>
+      </div>
+      <div class="col-md-6">
+        <h3><%= cart_detail.item.title %></h3>
+        <p><%= cart_detail.item.description %></p>
+        <p><%= cart_detail.item.price.round(2)%> EUR</p>
+        <%= link_to "Voir mes moustaches", item_path(cart_detail.item.id), class: "btn btn-info"%>
+        <br>
+        <br>
+        <%= link_to "Allez, supprime moi", user_cart_path(current_user.id, @cart.id, :cart_detail_id => cart_detail.id), class: "btn btn-danger", method: "put"%>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+  <h1 class="text-center mb-5">Total de la commande : <%= @total_amount %> EUR</h1>
+  <div class="text-center mb-5">
+  
+    <%= form_tag orders_path(:price => @total_amount*100) do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Réservation de ton chaton"
+            data-amount="<%= @total_amount *100 %>"
+            data-locale="auto"></script>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
